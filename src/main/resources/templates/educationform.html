@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Education</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../static/css/stylesheet.css"/>
+    <link rel="stylesheet" href="css/stylesheet.css"/>
+
+</head>
+<body background="image/2560x1440-light-blue-solid-color-background.jpg">
+<div th:replace="index :: navlinks"></div>
+<div  class="centered">
+<form autocomplete="off" action="#" th:action="@{/processeduction}"
+      th:object="${education}" method="post">
+    <span th:if="${#fields.hasErrors('school')}"
+          th:errors="*{school}">School:</span>
+    <input type="text" id="school" placeholder="school"
+           th:field="*{school}" /><br />
+
+
+    <span th:if="${#fields.hasErrors('level')}"
+          th:errors="*{level}">Level:</span>
+    <input type="text" id="level" placeholder="level"
+           th:field="*{level}" /><br />
+
+    <span th:if="${#fields.hasErrors('department')}"
+          th:errors="*{department}">Department:</span>
+    <input type="text" id="department" placeholder="department"
+           th:field="*{department}" /><br />
+
+
+
+    <span th:if="${#fields.hasErrors('year')}"
+          th:errors="*{year}">year:</span>
+    <input type="number" id="" placeholder="year"
+           th:field="*{year}" /><br />
+
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

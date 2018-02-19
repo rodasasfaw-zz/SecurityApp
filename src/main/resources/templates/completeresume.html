@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Robo Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../static/css/stylesheet.css"/>
+    <link rel="stylesheet" href="css/stylesheet.css"/>
+
+
+</head>
+
+<body background="image/2560x1440-light-blue-solid-color-background.jpg">
+<div th:replace="index :: navlinks"></div>
+<div  class="centeredd">
+
+
+<div th:each="contactinfo : ${contactinfos}">
+    <span th:inline="text">[[${contactinfo.firstName}]]</span>  <span th:inline="text">[[${contactinfo.lastName}]]<br /></span>
+    <span th:inline="text">[[${contactinfo.phoneNumber}]]<br/></span>
+    <span th:inline="text">[[${contactinfo.email}]]<br/></span>
+    <a th:href="@{/updatecontact/{id} (id=${contactinfo.id})}">Update contact</a>
+</div>
+<h1> Education</h1>
+
+<div th:each="education : ${educations}">
+    <span th:inline="text">[[${education.school}]]<br/></span>
+    <span th:inline="text">[[${education.level}]]<br/></span>
+    <span th:inline="text">[[${education.department}]]<br/></span>
+    <span th:inline="text">[[${education.year}]]<br/></span>
+    <a th:href="@{/updateeducation/{id} (id=${education.id})}">Update education</a>
+</div>
+
+<h1 th:inline="text">Experience</h1>
+<div th:each="experience : ${experiences}">
+<span th:inline="text">[[${experience.jobTitle}]]<br/></span>
+<span th:inline="text">[[${experience.company}]]<br/></span>
+<span th:inline="text">[[${experience.duty}]]<br/></span>
+    <span th:inline="text">[[${experience.beginyear}]]</span> - <span th:inline="text">[[${experience.endyear}]]<br/></span>
+    <a th:href="@{/updateexperience/{id} (id=${experience.id})}">Update experience</a>
+</div>
+
+
+<h1 th:inline="text">Skills</h1>
+<div th:each="skills : ${skillss}">
+    <span th:inline="text">[[${skills.skill}]]</span> - <span th:inline="text">[[${skills.rating}]]<br/></span>
+    <a th:href="@{/updateskill/{id} (id=${skills.id})}">Update skill</a>
+</div>
+<h2>References</h2>
+<div th:each="reference : ${references}">
+    <span th:inline="text">[[${reference.ref_firstName}]]</span>  <span th:inline="text">[[${reference.ref_lastName}]]<br /></span>
+    <span th:inline="text">[[${reference.ref_phoneNumber}]]<br/></span>
+    <span th:inline="text">[[${reference.ref_email}]]<br/></span>
+    <a th:href="@{/updatereference/{id} (id=${reference.id})}">Update reference</a>
+</div>
+
+<a href="/addeducation">add education</a><br />
+<a href="/addexperience">add experience</a><br />
+<a href="/addskills">add skill</a><br />
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
